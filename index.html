@@ -173,33 +173,33 @@
         <button class="cta-button">Take Action Now!</button>
     </div>
 
-    <script>
-        // 90 days countdown
-        const targetDate = new Date();
-        targetDate.setDate(targetDate.getDate() + 90);
+   <script>
+    // Set the target date to 29th January 2025, 2:00 AM
+    const targetDate = new Date('January 29, 2025 02:00:00 GMT+0530');
 
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const diff = targetDate - now;
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const diff = targetDate - now;
 
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-            document.getElementById('days').textContent = days.toString().padStart(2, '0');
-            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        document.getElementById('days').textContent = days.toString().padStart(2, '0');
+        document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+        document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+        document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
 
-            if (diff < 0) {
-                clearInterval(interval);
-                document.querySelector('.countdown').innerHTML = `<div class="warning">⌛ Time's up! It's too late now...</div>`;
-            }
+        if (diff < 0) {
+            clearInterval(interval);
+            document.querySelector('.countdown').innerHTML = `<div class="warning">⌛ Time's up! It's too late now...</div>`;
         }
+    }
 
-        const interval = setInterval(updateCountdown, 1000);
-        updateCountdown();
-    </script>
+    const interval = setInterval(updateCountdown, 1000);
+    updateCountdown();
+</script>
+
 </body>
 </html>
